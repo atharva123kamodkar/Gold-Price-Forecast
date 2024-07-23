@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About - Gold Price Prediction</title>
+  <link rel="stylesheet" />
+</head>
+<style>
+  a {
+    color: inherit;
+    text-decoration: none;
+}
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden; /* Prevent body scrolling */
+  }
+
+.nav-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 1130px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2a0776;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.navbar-heading {
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: 300;
+    text-shadow: 2px 2px 2px goldenrod;
+}
+
+.navbar-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+.navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 50px;
+}
+
+.about-section {
+    margin-top: 80px;
+    padding: 40px 20px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-content {
+    max-width: 800px;
+    text-align: center;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.main-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('static/gold.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    background-color: #000; /* Fallback color */
+}
+
+@media screen and (max-width: 600px) {
+    .centered-text h1 {
+        font-size: 36px;
+    }
+
+    .navbar {
+        justify-content: left;
+    }
+
+    .navbar-links {
+        position: absolute;
+        right: 0;
+    }
+
+    .about-content h1 {
+        font-size: 15px;
+    }
+
+    .about-content p {
+        font-size: 10px;
+    }
+    .nav-image {
+      display: none;
+    }
+}
+
+</style>
+<body>
+  <div class="navbar">
+    <div class="navbar-heading">Gold Price Prediction</div>
+      <img class="nav-image" src="static/goldb.png" />
+    <div class="navbar-links">
+      <a href="/">Home</a>
+    </div>
+  </div>
+  <div class="main-section">
+    <div class="about-section">
+      <div class="about-content">
+        <h1>About Us</h1>
+        <p>
+          Data provided is related to gold prices. The objective is to
+          understand the underlying structure in your dataset and come up with
+          a suitable forecasting model which can effectively forecast gold
+          prices for next 60 days.
+        </p>
+        <p>
+          This forecast model will be used by gold exporting and gold
+          importing companies to understand the metal price movements and
+          accordingly set their revenue expectations.
+        </p>
+        <p>
+          In conclusion, a Gold Price Prediction Project utilizing Forecasting
+          Analysis presents a valuable opportunity to gain insights into the
+          dynamic nature of the gold market and provide decision support for
+          stakeholders such as investors, traders, policymakers, and financial
+          institutions. Through a comprehensive analysis of historical gold
+          price data and relevant external factors, forecasting models can be
+          developed to predict future price movements and trends.
+        </p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

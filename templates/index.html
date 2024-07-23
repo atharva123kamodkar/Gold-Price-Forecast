@@ -1,1 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gold Price Prediction</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+  body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    overflow: hidden; /* Prevent body scrolling */
+  }
 
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #2a0776;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    z-index: 1000;
+  }
+
+  .navbar-heading {
+    font-size: 24px;
+    font-family: sans-serif;
+    font-weight: 300;
+    text-shadow: 2px 2px 2px goldenrod;
+  }
+
+  .nav-image {
+    height: 40px;
+    width: 40px;
+    margin-right: 1030px;
+  }
+
+  .navbar-links {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: sans-serif;
+    font-weight: 700;
+  }
+
+  .navbar-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 50px;
+  }
+
+  .hero-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('static/gold.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    flex-direction: column;
+    height: 100vh;
+  }
+
+  .centered-text {
+    text-align: center;
+    color: #fff;
+  }
+
+  .centered-text h1 {
+    font-size: 48px;
+    text-shadow: 2px 2px 2px goldenrod;
+  }
+
+  .prediction-form {
+    margin-top: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .input-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .input-group input {
+    padding: 15px;
+    margin: 0 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 200px;
+    font-size: 16px;
+  }
+
+  .prediction-form button {
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    background-color: #593ea2;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .output-table {
+    max-height: 300px; /* Adjust as needed */
+    overflow-y: auto;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Make the background semi-transparent */
+    border-radius: 10px;
+    padding: 10px;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: left;
+    color: #fff; /* White text color */
+  }
+
+  th, td {
+    padding: 12px;
+    border-bottom: 1px solid #fff;
+  }
+
+  th {
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  }
+
+  @media screen and (max-width: 600px) {
+    .centered-text h1 {
+      font-size: 36px;
+    }
+
+    .navbar {
+      justify-content: center;
+    }
+
+    .navbar-links {
+      position: absolute;
+      top: 0;
+      right: 7;
+      margin-top: 50px;
+      background-color: #2a0776;
+    }
+
+    .navbar-links a {
+      margin-left: 10px;
+    }
+
+    .prediction-form .input-group {
+      flex-direction: column;
+    }
+
+    .prediction-form .input-group input {
+      width: calc(100% - 20px);
+      margin: 10px;
+    }
+
+    .prediction-form button {
+      width: calc(100% - 20px);
+      margin: 10px;
+    }
+
+    .nav-image {
+      display: none;
+    }
+  }
+</style>
+<body>
+  <div class="navbar">
+    <div class="navbar-heading">Gold Price Prediction</div>
+    <img class="nav-image" src="static/goldb.png" />
+    <div class="navbar-links">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+
+  <div class="hero-section">
+    <div class="centered-text">
+      <h1>GOLD PRICE PREDICTION</h1>
+      <div class="prediction-form">
+        <div class="input-group">
+          <form method="post">
+            <input type="number" id="days" name="days" min="1" max="60" placeholder="Enter number of days" required>
+            <button type="submit" id="predict-button">Predict</button>
+          </form>
+        </div>
+        {% if pred is not none %}
+          <div class="output-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Predicted_Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for date, price in pred.items() %}
+                  <tr>
+                    <td>{{ date }}</td>
+                    <td>{{ price }}</td>
+                  </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>
